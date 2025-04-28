@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tester Lovina Trip</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Playfair Display', serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #f0f8ff;
+      color: #333;
+    }
+
+    .header-background {
+  background-color: rgba(0, 0, 0, 0.6); /* Warna hitam transparan */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 5%;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 80px;
+  z-index: 1000;
+  backdrop-filter: blur(5px); /* Efek blur agar lebih elegan */
+}
+
+    .logo {
+  font-size: 24px; /* Ukuran lebih kecil */
+  font-family: 'Great Vibes', cursive; /* Font kreatif */
+  font-weight: 400;
+  color: #ffffff;
+}
+
+
+    nav ul {
+      list-style: none;
+      display: flex;
+    }
+
+    nav li {
+      margin: 0 15px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff9800;
+    }
+
+    .hero {
+      background: url('background.jpg') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .hero h2 {
+      font-size: 4rem;
+      color: #007bff;
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+
+    .trip-section {
+      padding: 60px 5%;
+      background-color: #fff;
+    }
+
+    .trip-section h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #007bff;
+      margin-bottom: 40px;
+    }
+
+    .trip-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .trip-card {
+      background-color: #f0f8ff;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .trip-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+    }
+
+    .trip-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .trip-card h3 {
+      margin: 20px;
+      color: #eedaaf;
+      font-size: 1.8rem;
+    }
+
+    .trip-card p {
+      margin: 0 20px 20px;
+      color: #666;
+    }
+
+    footer {
+      background-color: #007bff;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <header class="header-background">
+    <h1 class="logo">Tester Lovina Trip</h1>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#tours">Tours</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <h2>Explore the Beauty of Lovina</h2>
+    <p>Discover amazing places and enjoy unforgettable experiences.</p>
+  </section>
+  <section class="trip-section" id="tours">
+    <h2>Best Offers</h2>
+    <div id="tripGrid" class="trip-grid"></div>
+  </section>
+  
+    <div id="popupOverlay" class="popup-overlay">
+        <div id="popupContent" class="popup-content">
+          <!-- Konten popup akan diisi oleh script.js -->
+        </div>
+      </div>
+      <body>
+        <section id="about" class="about-section">
+            <div class="about-content">
+              <h2>About Us</h2>
+              <p>Welcome to Tester Lovina Trip! Experience the beauty of Lovina with our exclusive Dolphin Trip and explore the best destinations guided by our experienced team. Our mission is to create unforgettable memories for our guests with the highest level of professionalism and service.</p>
+              <p>Join us for an extraordinary adventure and discover the charm of Lovina like never before.</p>
+            </div>
+          </section>
+          
+          <style>
+            * {
+              margin: 0;
+              padding: 0;
+              box-sizing: border-box;
+              font-family: Arial, sans-serif;
+            }
+          
+            .about-section {
+              background-image: url('about.jpg');
+              background-size: cover;
+              background-position: center;
+              color: white;
+              height: 60vh; /* Mengurangi tinggi menjadi 60% viewport */
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              text-align: center;
+              padding: 0 20px;
+            }
+          
+            .about-content {
+              max-width: 800px; /* Lebih lebar untuk tampilan yang ramping */
+              background-color: rgba(0, 0, 0, 0.6);
+              padding: 30px;
+              border-radius: 10px;
+              animation: fadeInUp 1s ease-in-out;
+            }
+          
+            .about-content h2 {
+              font-size: 2rem;
+              margin-bottom: 15px;
+            }
+          
+            .about-content p {
+              font-size: 1rem;
+              margin-bottom: 15px;
+            }
+          
+            @keyframes fadeInUp {
+              from {
+                opacity: 0;
+                transform: translateY(30px);
+              }
+              to {
+                opacity: 1;
+                transform: translateY(0);
+              }
+            }
+          </style>
+          
+      <script src="script.js" defer></script>
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <title>About Section</title>
+      </head>
+      <body>
+          
+      <section class="why-lovina">
+        <h2>Why Lovina Trip</h2>
+        <div class="benefits-container">
+          <div class="benefit-card">
+            <img src="icon1.png" alt="Personalized Matching" />
+            <h3>PERSONALIZED MATCHING</h3>
+            <p>Discover the best trip tailored just for you with our personalized recommendations.</p>
+          </div>
+          <div class="benefit-card">
+            <img src="icon2.png" alt="Wide Variety of Destinations" />
+            <h3>WIDE VARIETY OF DESTINATIONS</h3>
+            <p>Experience the beauty of Lovina with our selection of amazing destinations.</p>
+          </div>
+          <div class="benefit-card">
+            <img src="icon3.png" alt="Highly Qualified Service" />
+            <h3>HIGHLY QUALIFIED SERVICE</h3>
+            <p>Enjoy exceptional service from our experienced local guides.</p>
+          </div>
+          <div class="benefit-card">
+            <img src="icon4.png" alt="24/7 Support" />
+            <h3>24/7 SUPPORT</h3>
+            <p>We are available around the clock to assist you during your trip.</p>
+          </div>
+          <div class="benefit-card">
+            <img src="icon5.png" alt="Handpicked Hotels" />
+            <h3>HANDPICKED HOTELS</h3>
+            <p>Stay in the most comfortable and well-reviewed hotels in Lovina.</p>
+          </div>
+          <div class="benefit-card">
+            <img src="icon6.png" alt="Best Price Guarantee" />
+            <h3>BEST PRICE GUARANTEE</h3>
+            <p>We ensure you get the best value for your money with our price guarantee.</p>
+          </div>
+        </div>
+      </section>
+      
+      <style>
+      .why-lovina {
+        background: url('home.webp') no-repeat center center/cover;
+        color: white;
+        text-align: center;
+        padding: 50px 20px;
+      }
+      
+      h2 {
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+      }
+      
+      .benefits-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+      }
+      
+      .benefit-card {
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 10px;
+        padding: 20px;
+        text-align: left;
+        color: black;
+      }
+      
+      .benefit-card img {
+        width: 50px;
+        margin-bottom: 10px;
+      }
+      
+      h3 {
+        font-size: 1.25rem;
+        margin-bottom: 10px;
+      }
+      
+      p {
+        font-size: 1rem;
+        color: #555;
+      }
+      </style>
+      
+
+      
+      <section id="contact" class="contact-section">
+        <div class="contact-overlay">
+          <div class="contact-container">
+            <div class="contact-info">
+              <h2>Contact Us</h2>
+              <p><img src="phone.png" alt="Phone" class="icon"/> 345-677-554</p>
+              <div class="social-media">
+                <a href="#" aria-label="Facebook"><img src="facebook.png" alt="Facebook"/></a>
+                <a href="#" aria-label="Twitter"><img src="twitter.png" alt="Twitter"/></a>
+                <a href="#" aria-label="Instagram"><img src="instagram.png" alt="Instagram"/></a>
+                <a href="#" aria-label="Tiktok"><img src="Tiktok.png" alt="Tiktok"/></a>
+              </div>
+            </div>
+            <a
+  href="https://wa.me/6281234567890"
+  class="whatsapp-float"
+  target="_blank"
+  aria-label="Chat on WhatsApp"
+>
+  <img src="phone.png" alt="WhatsApp" />
+</a>
+
+      
+            <div class="lovina-article">
+              <h3>Discover the Beauty of Lovina</h3>
+              <p>Located in the northern part of Bali, Lovina is famous for its serene beaches, breathtaking sunrise dolphin tours, and vibrant coral reefs. Whether you're seeking relaxation or adventure, Lovina offers an unforgettable experience. Explore the local culture, savor delicious Balinese cuisine, and capture memories that last a lifetime.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+      
+      .contact-section {
+        background: url('contact.jpg') no-repeat center center/cover;
+        color: #fff;
+        padding: 80px 20px;
+        text-align: center;
+        position: relative;
+        font-family: 'Poppins', sans-serif;
+      }
+      
+      
+      .contact-container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      
+      .contact-info h2 {
+        color: #007bff;
+        margin-bottom: 20px;
+        font-size: 2.5rem;
+        text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+      }
+      
+      .contact-info p {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+      }
+      
+      .contact-info .icon {
+        width: 24px;
+        margin-right: 10px;
+      }
+      
+      .social-media a img {
+        width: 40px;
+        margin: 0 10px;
+        transition: transform 0.3s ease;
+      }
+      
+      .social-media a:hover img {
+        transform: scale(1.1);
+      }
+      
+      .lovina-article {
+        margin-top: 40px;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        backdrop-filter: blur(8px);
+      }
+      
+      .lovina-article h3 {
+        color: #007bff;
+        font-size: 2rem;
+        margin-bottom: 15px;
+        text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
+      }
+      
+      .lovina-article p {
+        font-size: 1.1rem;
+        color: rgba(255, 255, 255, 0.9);
+      }
+      </style>
+<section id="gallery" style="padding: 60px 5%; background-color: #fff;">
+  <h2 style="text-align: center; font-size: 2.5rem; color: #007bff; margin-bottom: 40px;">Gallery</h2>
+  <div class="gallery-grid">
+    <!-- Card 1 -->
+    <div class="gallery-item">
+      <img src="sunset.jpg" alt="Lovina Beach" class="gallery-img">
+      <div class="overlay">
+        <p class="description">Lovina Beach at Sunrise</p>
+      </div>
+    </div>
+    <!-- Card 2 -->
+    <div class="gallery-item">
+      <img src="snorkeling.jpeg" alt="Dolphin Watching" class="gallery-img">
+      <div class="overlay">
+        <p class="description">Dolphin Watching Tour</p>
+      </div>
+    </div>
+    <!-- Card 3 -->
+    <div class="gallery-item">
+      <img src="temple.jpeg" alt="Sunrise View" class="gallery-img">
+      <div class="overlay">
+        <p class="description">Sunrise View</p>
+      </div>
+    </div>
+    <!-- Card 4 -->
+    <div class="gallery-item">
+      <img src="waterfall.jpeg" alt="Traditional Boat" class="gallery-img">
+      <div class="overlay">
+        <p class="description">Traditional Boat Tour</p>
+      </div>
+    </div>
+    <!-- Card 5 -->
+    <div class="gallery-item">
+      <img src="background.jpg" alt="Lovina Local Culture" class="gallery-img">
+      <div class="overlay">
+        <p class="description">Lovina Local Culture</p>
+      </div>
+    </div>
+    <!-- Card 6 -->
+    <div class="gallery-item">
+      <img src="about.jpg" alt="Scenic Beachside" class="gallery-img">
+      <div class="overlay">
+        <p class="description">Scenic Beachside</p>
+      </div>
+    </div>
+    <!-- Card 7 -->
+    <div class="gallery-item">
+      <img src="contact.jpg" alt="Island Adventures" class="gallery-img">
+      <div class="overlay">
+        <p class="description">Island Adventures</p>
+      </div>
+    </div>
+    <!-- Card 8 -->
+    <div class="gallery-item">
+      <img src="hot_spring.jpg" alt="Nature Trails" class="gallery-img">
+      <div class="overlay">
+        <p class="description">Nature Trails</p>
+      </div>
+    </div>
+    <!-- Card 9 -->
+    <div class="gallery-item">
+      <img src="sunset.jpg" alt="Cultural Performances" class="gallery-img">
+      <div class="overlay">
+        <p class="description">Cultural Performances</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="location" style="padding: 60px 20px; text-align: center;">
+  <h2 style="font-size: 2.5rem; margin-bottom: 20px; color: #007bff;">Our Location</h2>
+  <div style="max-width: 1000px; margin: 0 auto; border-radius: 10px; overflow: hidden;">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126495.69480132983!2d115.00908906553565!3d-8.17081271618666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd1881168376e0d%3A0x4d5bdfc961d1dc25!2sPantai%20Lovina!5e0!3m2!1sid!2sid!4v1713950908979!5m2!1sid!2sid"
+      width="100%"
+      height="450"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+  </div>
+</section>
+
+<section class="testimonial-section">
+  <h2>What Our Guests Say</h2>
+
+  <!-- Form untuk input review -->
+  <form id="review-form" class="review-form">
+    <textarea id="review-text" placeholder="Tulis review Anda di sini..." required></textarea>
+    <input type="text" id="review-author" placeholder="Nama Anda" required>
+    <button type="submit">Kirim Review</button>
+  </form>
+
+  <!-- Container untuk list testimonial -->
+  <div id="testimonial-container" class="testimonial-container">
+    <div class="testimonial-card">
+      <p>"Dolphin trip-nya luar biasa! Sunrise-nya indah banget dan guidenya ramah. Recommended!"</p>
+      <h4>— Ayu Wulandari</h4>
+    </div>
+    <div class="testimonial-card">
+      <p>"Sangat menyenangkan dan pelayanan yang sangat baik. Kami akan kembali lagi ke Lovina!"</p>
+      <h4>— John & Clara</h4>
+    </div>
+    <div class="testimonial-card">
+      <p>"Tempat yang indah,pengalaman melihat lumba-lumba sangat magis! Terima kasih tim Tester Lovina."</p>
+      <h4>— Budi Santoso</h4>
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonial-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+    background: #f9f9f9;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+
+  .testimonial-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #333;
+  }
+
+  .review-form {
+    display: grid;
+    gap: 15px;
+    margin-bottom: 40px;
+  }
+
+  .review-form textarea,
+  .review-form input {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    font-size: 1em;
+    width: 100%;
+    resize: none;
+  }
+
+  .review-form button {
+    padding: 12px 20px;
+    background: #0077ff;
+    color: white;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .review-form button:hover {
+    background: #005fcc;
+  }
+
+  .testimonial-container {
+    display: grid;
+    gap: 20px;
+  }
+
+  .testimonial-card {
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.5s ease;
+  }
+
+  /* Style untuk animasi ketika review baru ditambahkan */
+  .testimonial-card.new {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  .testimonial-card.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .testimonial-card p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: #555;
+  }
+
+  .testimonial-card h4 {
+    font-weight: bold;
+    color: #222;
+  }
+</style>
+
+<script>
+  const form = document.getElementById('review-form');
+  const testimonialContainer = document.getElementById('testimonial-container');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Supaya tidak reload halaman
+
+    // Ambil nilai input
+    const reviewText = document.getElementById('review-text').value;
+    const reviewAuthor = document.getElementById('review-author').value;
+
+    // Buat elemen testimonial baru
+    const newTestimonial = document.createElement('div');
+    newTestimonial.classList.add('testimonial-card', 'new');
+    newTestimonial.innerHTML = `
+      <p>"${reviewText}"</p>
+      <h4>— ${reviewAuthor}</h4>
+    `;
+
+    // Tambahkan testimonial baru ke container
+    testimonialContainer.prepend(newTestimonial);
+
+    // Setelah sedikit delay, tambahkan class 'show' untuk animasi
+    setTimeout(() => {
+      newTestimonial.classList.add('show');
+    }, 50);
+
+    // Reset form
+    form.reset();
+  });
+</script>

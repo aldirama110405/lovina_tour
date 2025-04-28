@@ -1,0 +1,404 @@
+/* Tambahkan ini di file CSS untuk styling slider */
+.slider-wrapper {
+    position: relative;
+    width: 80%;
+    margin: 50px auto;
+    overflow: hidden;
+  }
+  
+  .slider {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+  
+  .slide {
+    min-width: 100%;
+    height: 400px;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .slide-content {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  
+  .prev { left: 10px; }
+  .next { right: 10px; }
+  .trip-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin: 40px 5%;
+  }
+  
+  .trip-card {
+    background-color: #ff9800;
+    padding: 30px;
+    border-radius: 12px;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  }
+  
+  .trip-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+  
+  .trip-card:hover {
+    transform: translateY(-10px);
+  }
+  
+  @media (max-width: 900px) {
+    .trip-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .trip-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .popup-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    text-align: center;
+  }
+  
+  .popup-content h2 {
+    color: #007bff;
+    margin-bottom: 20px;
+  }
+  
+  .popup-content p {
+    margin-bottom: 20px;
+    color: #555;
+  }
+  
+  .popup-content a {
+    display: inline-block;
+    background-color: #ff9800;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 10px;
+    text-decoration: none;
+  }
+  
+  .popup-content .close-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+
+  .whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    background-color: #25d366;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s;
+  }
+  
+  .whatsapp-float:hover {
+    transform: scale(1.1);
+  }
+  
+  .whatsapp-float img {
+    width: 35px;
+    height: 35px;
+  }
+  .testimonial-section {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+  }
+  
+  .testimonial-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #007bff;
+  }
+  
+  .testimonial-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  
+  .testimonial-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+  }
+  
+  .testimonial-card:hover {
+    transform: translateY(-8px);
+  }
+  
+  .testimonial-card p {
+    font-size: 1.1rem;
+    color: #444;
+    font-style: italic;
+    margin-bottom: 15px;
+  }
+  
+  .testimonial-card h4 {
+    color: #007bff;
+    font-weight: bold;
+  }
+  #carouselExampleCaptions .carousel-item {
+    height: 60vh;
+    background-color: #333;
+}
+
+#carouselExampleCaptions .carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5);
+    bottom: 20px;
+    padding: 15px;
+}
+
+.carousel-caption h5 {
+    font-size: 2rem;
+    color: #fff;
+}
+
+.carousel-caption p {
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.gallery-img:hover {
+  transform: scale(1.1);
+}
+
+.gallery-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 10px;
+  display: none;
+  text-align: center;
+}
+#carouselExampleCaptions .carousel-item {
+  height: 60vh;
+  background-color: #333;
+}
+
+#carouselExampleCaptions .carousel-caption {
+  background-color: rgba(0, 0, 0, 0.5);
+  bottom: 20px;
+  padding: 15px;
+}
+
+.carousel-caption h5 {
+  font-size: 2rem;
+  color: #fff;
+}
+
+.carousel-caption p {
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+/* Gallery Grid Styling */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+/* Styling for Gallery Items */
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+/* Apply grayscale filter and zoom effect */
+.gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease, filter 0.5s ease;
+  filter: grayscale(100%); /* Set grayscale to 100% */
+}
+
+/* Apply zoom-in effect when hovered */
+.gallery-item:hover .gallery-img {
+  transform: scale(1.1); /* Zoom in */
+  filter: grayscale(0%); /* Remove grayscale (colorize the image) */
+}
+
+/* Overlay Description Styling */
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 15px;
+  text-align: center;
+  opacity: 0; /* Initially hide the overlay */
+  transition: opacity 0.3s ease;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 250px;
+}
+
+/* Show the overlay when hovered */
+.gallery-item:hover .overlay {
+  opacity: 1;
+}
+
+/* Styling for text description inside the overlay */
+.description {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Make sure it looks good on mobile */
+@media (max-width: 768px) {
+  .description {
+    font-size: 1rem;
+  }
+}
+/* Gallery Grid Styling */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+  gap: 20px;
+  justify-items: center; /* Center all cards */
+}
+
+/* Styling for Gallery Items */
+.gallery-item {
+  position: relative;
+  width: 100%;
+  height: 300px; /* Fixed height for uniformity */
+  overflow: hidden;
+  border-radius: 15px; /* Rounded corners */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Apply grayscale filter and zoom effect */
+.gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease, filter 0.5s ease;
+  filter: grayscale(100%); /* Set grayscale to 100% */
+}
+
+/* Apply zoom-in effect when hovered */
+.gallery-item:hover .gallery-img {
+  transform: scale(1.1); /* Zoom in */
+  filter: grayscale(0%); /* Remove grayscale (colorize the image) */
+}
+
+/* Overlay Description Styling */
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 15px;
+  text-align: center;
+  opacity: 0; /* Initially hide the overlay */
+  transition: opacity 0.3s ease;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 250px;
+}
+
+/* Show the overlay when hovered */
+.gallery-item:hover .overlay {
+  opacity: 1;
+}
+
+/* Styling for text description inside the overlay */
+.description {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Make sure it looks good on mobile */
+@media (max-width: 768px) {
+  .description {
+    font-size: 1rem;
+  }
+}
+
